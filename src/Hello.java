@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+// this annotatin cmes by default while creating servlet if this is there no need of an entry in web.xml file.
 @WebServlet("/Hello")
 
 public class Hello extends HttpServlet {
