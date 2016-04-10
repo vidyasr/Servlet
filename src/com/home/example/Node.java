@@ -33,12 +33,13 @@ public void printlist(){
 		System.out.print(curr.data + "->");
 		curr = curr.next;
 	}
+	System.out.println();
 }
 
 public void printlist(Node newNode){
 	Node curr = newNode.head;
 	while(curr!=null){
-		System.out.print(curr.data + "->");
+		System.out.println(curr.data + "->");
 		curr = curr.next;
 	}
 }
@@ -61,7 +62,59 @@ public static void main(String args[]){
 	node.push(5);
 	node.push(6);
 	node.printlist();
-	node.reverse();
-	
+	node.delete(5);
+	node.printlist();
+	node.delete(2);
+	node.delete(6);
+	node.printlist();
+	node.push(2);
+	node.push(5);
+	node.push(6);
+	node.printlist();
+	node.deleteAtPosition(2);
+	node.deleteAtPosition(1);
+	node.printlist();
+	node.deleteAtPosition(0);
+	node.printlist();
+	node.push(1);
+	node.printlist();
+}
+
+private void delete(int data) {
+	Node curr = head;
+	if(data == curr.data)
+	{
+		head = curr.next;
+		return;
+	}
+	while(curr.next!= null){
+		if(curr.data == data){
+		  curr.prev.next = curr.next;
+			curr = curr.next;
+		}
+		else
+		 curr = curr.next;
+	}
+}
+
+private void deleteAtPosition(int position) {
+	Node curr = head;
+	if(position == 0)
+	{
+		head = curr.next;
+		return;
+	}
+	int i = 1;
+	curr = curr.next;
+	while(curr!= null){
+		if(i == position){
+		  curr.prev.next = curr.next;
+			curr = curr.next;
+			break;
+		}
+		else
+		 curr = curr.next;
+		i++;
+	}
 }
 }
